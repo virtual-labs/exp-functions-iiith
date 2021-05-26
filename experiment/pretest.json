@@ -1,18 +1,22 @@
 [
-{"question":"This is a Sample Question 1?",
+{"question":"1. Function prototype is required in every program.",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"True",
+            "b":"False"
           },
-"correctAnswer":"a"},
-{"question":"This is a Sample Question 2?",
+ "correctAnswer":"b"},
+    {"question":"2. Functions can return more than one value at a time",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"True",
+            "b":"False"
           },
-"correctAnswer":"c"} 
+     "correctAnswer":"b"},
+    {"question":"3. What is the default return value of a function?",
+"answers":{
+            "a":"int",
+            "b":"Void",
+            "c":"No default return type",
+            "d":"Boolean"
+          },
+"correctAnswer":"a"} 
 ]

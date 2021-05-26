@@ -1,18 +1,18 @@
 [
-{"question":"This is a Sample Question 1?",
+{"question":"Which of the following is an invalid function prototype?",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"float fun(int aa, int bb);",
+            "b":"float fun(int aa, int );",
+            "c":"float fun(float , int );",
+            "d":"float fun(int aa, bb);"
           },
-"correctAnswer":"a"},
-{"question":"This is a Sample Question 2?",
+"correctAnswer":"d"},
+{"question":"What is the return type of the function with prototype: "int func(char x, float v, double t);"",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"char",
+            "b":"int",
+            "c":"float",
+            "d":"double"
           },
-"correctAnswer":"c"} 
+"correctAnswer":"b"} 
 ]
