@@ -1,17 +1,17 @@
 [
-{"question":"1. Function prototype is required in every program.",
+{"question":"Function prototype is required in every program.",
 "answers":{
             "a":"True",
             "b":"False"
           },
  "correctAnswer":"b"},
-    {"question":"2. Functions can return more than one value at a time",
+    {"question":"Functions can return more than one value at a time",
 "answers":{
             "a":"True",
             "b":"False"
           },
      "correctAnswer":"b"},
-    {"question":"3. What is the default return value of a function?",
+    {"question":"What is the default return value of a function?",
 "answers":{
             "a":"int",
             "b":"Void",
