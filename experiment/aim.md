@@ -3,10 +3,4 @@ Writing large programs effectively requires decomposition of the code into sever
 An example of a function, say you are making a program that calculates sales tax and returns the total payable amount.The function would ask for a subtotal(s_total) and the tax percentage(p) as arguments, then take that s_total and multiply it by p/100 to calculate the sales tax(s_tax). After this, the function would calculate the total payable amount by adding sales tax(s_tax) and sub total(s_total) and return it to the main program. This function can be called many times from the main program for different customers by proving thier sub total and sales tax to be applied.
 
 
-#### Objective
-
-1. To understand that a big program can be broken up into independent modules
-
-2. To learn to define functions and call them with appropriate parameters
-
 
