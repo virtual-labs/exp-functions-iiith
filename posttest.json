@@ -1,0 +1,30 @@
+[
+{"question":"1. Which of the following is an invalid function prototype?",
+"answers":{
+            "a":"float fun(int aa, int bb);",
+            "b":"float fun(int aa, int );",
+            "c":"float fun(float , int );",
+            "d":"float fun(int aa, bb);"
+          },
+"correctAnswer":"d"},
+
+{"question":"2. What is the return type of the function with prototype: `int func(char x, float v, double t);`",
+"answers":{
+            "a":"char",
+            "b":"int",
+            "c":"float",
+            "d":"double"
+          },
+"correctAnswer":"b"},
+
+{"question":"3. What is printed when this program is executed <br/> <img src='images/code.png'>",
+"answers":{
+            "a":"4",
+            "b":"5",
+            "c":"6",
+            "d":"7"
+          },
+"correctAnswer":"a"}
+ 
+
+]

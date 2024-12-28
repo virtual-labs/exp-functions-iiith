@@ -1,0 +1,22 @@
+[
+{"question":"Function prototype is required in every program.",
+"answers":{
+            "a":"True",
+            "b":"False"
+          },
+ "correctAnswer":"b"},
+    {"question":"Functions can return more than one value at a time",
+"answers":{
+            "a":"True",
+            "b":"False"
+          },
+     "correctAnswer":"b"},
+    {"question":"What is the default return value of a function?",
+"answers":{
+            "a":"int",
+            "b":"Void",
+            "c":"No default return type",
+            "d":"Boolean"
+          },
+"correctAnswer":"a"} 
+]
