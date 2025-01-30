@@ -200,6 +200,7 @@ body {
     border:1px solid #CCC;
 }
 
+
 .programInitialization {
    height: 8%;
 }
@@ -212,19 +213,31 @@ body {
     height: 15%;
 }
 
+#inputBoxSection {
+    display: flex-column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .textArea {
     margin-top: 10px;
     text-align: center;
     font-size: 15px;
-    float: left;
-    margin-left: 20%;
-    height: 26px;
+    height: 21px;
     width: 70%;
     min-width: 100px;
     border: 1px solid #CCC;
     outline: none;
     border-radius: 3px;
+    margin-right: 5px; /* Adjust spacing between input boxes */
 }
+
+.plusSign {
+    display: block;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
 
 .imageSquare, .imageRectangle, .imageTriangle, .imageCircle {
     position: absolute;
@@ -508,4 +521,32 @@ body {
     font-size: 1.2em;
 }
 
+}
+
+/* Container styling */
+.v-collapsible-instruction-container {
+    border: 1px solid #ddd; /* Border for the container */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Space below the container */
+}
+
+/* Collapsible header styling */
+.v-collapsible {
+    background-color: #f1f1f1; /* Background color for the header */
+    padding: 10px; /* Padding inside the header */
+    border-top-left-radius: 5px; /* Rounded top-left corner */
+    border-top-right-radius: 5px; /* Rounded top-right corner */
+    cursor: pointer; /* Pointer cursor for interaction */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Content area styling */
+#procedure-message {
+    padding: 10px; /* Padding inside the content area */
+}
+
+/* List item styling */
+.instr-font {
+    font-size: 15px; /* Font size for the instructions */
+    line-height: 1; /* Line height for readability */
 }
