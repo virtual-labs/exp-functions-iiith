@@ -11,7 +11,7 @@ class MobileDetection {
   detectMobile() {
     // Check for mobile user agents
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
+
     // Mobile device patterns
     const mobilePatterns = [
       /Android/i,
@@ -23,25 +23,29 @@ class MobileDetection {
       /Windows Phone/i,
       /Opera Mini/i,
       /IEMobile/i,
-      /Mobile/i
+      /Mobile/i,
     ];
 
     // Check screen size (additional check for small screens)
-    const isSmallScreen = window.innerWidth <= 1000 || window.innerHeight <= 1000;
-    
+    const isSmallScreen =
+      window.innerWidth <= 1000 || window.innerHeight <= 1000;
+
     // Check touch capability
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
+    const isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
     // Return true if any mobile pattern matches OR if it's a small touch screen
-    return mobilePatterns.some(pattern => pattern.test(userAgent)) || 
-           (isSmallScreen && isTouchDevice);
+    return (
+      mobilePatterns.some((pattern) => pattern.test(userAgent)) ||
+      (isSmallScreen && isTouchDevice)
+    );
   }
 
   init() {
     if (this.isMobile && !this.overlayShown) {
       // Wait for DOM to be ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => this.showOverlay());
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => this.showOverlay());
       } else {
         this.showOverlay();
       }
@@ -50,12 +54,12 @@ class MobileDetection {
 
   showOverlay() {
     if (this.overlayShown) return;
-    
+
     this.overlayShown = true;
 
     // Create overlay HTML
-    const overlay = document.createElement('div');
-    overlay.id = 'mobile-warning-overlay';
+    const overlay = document.createElement("div");
+    overlay.id = "mobile-warning-overlay";
     overlay.innerHTML = `
       <div class="mobile-overlay-backdrop">
         <div class="mobile-overlay-content">
@@ -234,16 +238,18 @@ class MobileDetection {
     `;
 
     // Add styles to head
-    document.head.insertAdjacentHTML('beforeend', styles);
-    
+    document.head.insertAdjacentHTML("beforeend", styles);
+
     // Add overlay to body
     document.body.appendChild(overlay);
-    
+
     // Prevent body scrolling
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   }
 
   continueAnyway() {
+    // Add mobile-mode class to body for robust mobile CSS
+    document.body.classList.add("mobile-mode");
     this.forceDesktopMode();
     this.hideOverlay();
   }
@@ -252,12 +258,15 @@ class MobileDetection {
     // Method 1: Set viewport to desktop width
     let viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) {
-      viewport.setAttribute('content', 'width=1024, initial-scale=0.5, user-scalable=yes');
+      viewport.setAttribute(
+        "content",
+        "width=1024, initial-scale=0.5, user-scalable=yes",
+      );
     } else {
       // Create viewport meta tag if it doesn't exist
-      viewport = document.createElement('meta');
-      viewport.name = 'viewport';
-      viewport.content = 'width=1024, initial-scale=0.5, user-scalable=yes';
+      viewport = document.createElement("meta");
+      viewport.name = "viewport";
+      viewport.content = "width=1024, initial-scale=0.5, user-scalable=yes";
       document.head.appendChild(viewport);
     }
 
@@ -290,29 +299,31 @@ class MobileDetection {
         }
       </style>
     `;
-    
+
     // Remove existing desktop mode styles if any
-    const existingStyles = document.querySelector('#desktop-mode-override');
+    const existingStyles = document.querySelector("#desktop-mode-override");
     if (existingStyles) {
       existingStyles.remove();
     }
-    
+
     // Add new desktop mode styles
-    document.head.insertAdjacentHTML('beforeend', desktopModeStyles);
+    document.head.insertAdjacentHTML("beforeend", desktopModeStyles);
 
     // Method 3: Try to trigger browser's request desktop site (limited browser support)
     try {
       // Some browsers support this property
-      if ('requestDesktopSite' in navigator) {
+      if ("requestDesktopSite" in navigator) {
         navigator.requestDesktopSite();
       }
-      
+
       // Alternative approach: modify user agent string for future requests
-      if ('userAgentData' in navigator) {
+      if ("userAgentData" in navigator) {
         navigator.userAgentData.mobile = false;
       }
     } catch (e) {
-      console.log('Browser does not support programmatic desktop mode switching');
+      console.log(
+        "Browser does not support programmatic desktop mode switching",
+      );
     }
 
     // Method 4: Show instruction overlay if automatic methods don't work
@@ -325,8 +336,8 @@ class MobileDetection {
 
   showDesktopModeInstructions() {
     // Create instruction overlay
-    const instructionOverlay = document.createElement('div');
-    instructionOverlay.id = 'desktop-mode-instructions';
+    const instructionOverlay = document.createElement("div");
+    instructionOverlay.id = "desktop-mode-instructions";
     instructionOverlay.innerHTML = `
       <div class="mobile-overlay-backdrop">
         <div class="mobile-overlay-content">
@@ -363,36 +374,41 @@ class MobileDetection {
       window.history.back();
     } else {
       // You can customize this to redirect to your main page
-      alert('Please bookmark this page and open it on a desktop computer for the best experience.');
+      alert(
+        "Please bookmark this page and open it on a desktop computer for the best experience.",
+      );
     }
   }
 
   hideOverlay() {
-    const overlay = document.getElementById('mobile-warning-overlay');
+    const overlay = document.getElementById("mobile-warning-overlay");
     if (overlay) {
-      overlay.style.animation = 'fadeOut 0.3s ease-out forwards';
+      overlay.style.animation = "fadeOut 0.3s ease-out forwards";
       setTimeout(() => {
         overlay.remove();
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
       }, 300);
     }
   }
 }
 
 // Add fadeOut animation
-document.head.insertAdjacentHTML('beforeend', `
+document.head.insertAdjacentHTML(
+  "beforeend",
+  `
   <style>
     @keyframes fadeOut {
       from { opacity: 1; }
       to { opacity: 0; }
     }
   </style>
-`);
+`,
+);
 
 // Initialize mobile detection
 const mobileDetection = new MobileDetection();
 
 // Export for use in other scripts if needed
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = MobileDetection;
 }

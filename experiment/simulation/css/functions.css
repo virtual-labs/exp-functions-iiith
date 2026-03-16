@@ -1,3 +1,388 @@
+body.mobile-mode .outputDivision {
+  min-height: 350px;
+  height: auto;
+  box-sizing: border-box;
+}
+body.mobile-mode .resultDisplay {
+  min-height: 320px;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+body.mobile-mode .imageComplex {
+  width: 100%;
+  min-height: 320px;
+  height: 520px !important;
+  max-width: 95vw;
+  max-height: 95vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+body.mobile-mode .imageComplex img,
+body.mobile-mode .imageComplex svg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  display: block;
+}
+body.mobile-mode .okButton,
+body.mobile-mode .executeButton {
+  width: auto;
+  min-width: 120px;
+  max-width: 80vw;
+  font-size: 1.1em;
+  padding: 0.7em 1.5em;
+  box-sizing: border-box;
+  background: #1976d2;
+  color: #fff;
+  border: 2px solid #1565c0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+  font-weight: bold;
+  margin: 1em auto 1em auto;
+  display: block;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+body.mobile-mode .imageComplex.hide {
+  display: none !important;
+}
+body.mobile-mode .programInitialization,
+body.mobile-mode .computeArea,
+body.mobile-mode #inputBoxSection,
+body.mobile-mode .programTail {
+  width: 95vw;
+  max-width: 99vw;
+  margin: 0 auto 0.5em auto;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+body.mobile-mode .programTail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+body.mobile-mode .imageBlock.hide {
+  display: none !important;
+}
+body.mobile-mode .okButton {
+  width: auto;
+  min-width: 120px;
+  max-width: 80vw;
+  font-size: 1.1em;
+  padding: 0.7em 1.5em;
+  box-sizing: border-box;
+  background: #1976d2;
+  color: #fff;
+  border: 2px solid #1565c0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+  font-weight: bold;
+  margin: 1em auto 1em auto;
+  display: block;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+body.mobile-mode .imageComplex.hide {
+  display: none !important;
+}
+body.mobile-mode #calculateArea {
+  width: 98vw;
+  max-width: 99vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+body.mobile-mode .programTail {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+body.mobile-mode .imageBlock.hide {
+  display: none !important;
+}
+/* --- MOBILE MODE ONLY --- */
+body.mobile-mode #inputBoxSection {
+  width: 90vw;
+  max-width: 320px;
+  margin: 0 auto 1em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body.mobile-mode .textArea {
+  width: 8em !important;
+  min-width: 6em;
+  max-width: 10em;
+  margin: 0.2em auto;
+  display: block;
+  font-size: 1.1em;
+  text-align: center;
+}
+body.mobile-mode .okButton,
+body.mobile-mode .executeButton {
+  width: auto;
+  min-width: 120px;
+  max-width: 80vw;
+  font-size: 1.1em;
+  padding: 0.7em 1.5em;
+  box-sizing: border-box;
+  background: #1976d2;
+  color: #fff;
+  border: 2px solid #1565c0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+  font-weight: bold;
+  margin: 1em auto 1em auto;
+  display: block;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body.mobile-mode .executeButton:hover {
+  background: #1565c0;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.25);
+}
+body.mobile-mode .v-collapsible-instruction-container.instructionsOutput {
+  width: 98vw !important;
+  max-width: 99vw;
+  margin: 0.5em auto 0.5em auto;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+body.mobile-mode .resultDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+body.mobile-mode .imageBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+  position: static !important;
+}
+body.mobile-mode .imageSquare,
+body.mobile-mode .imageRectangle,
+body.mobile-mode .imageTriangle,
+body.mobile-mode .imageCircle {
+  position: static;
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+  margin: 0 auto 1em auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.mobile-mode .imageComplex {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 1em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: static !important;
+}
+body.mobile-mode .okButton {
+  width: auto;
+  min-width: 120px;
+  max-width: 80vw;
+  font-size: 1.1em;
+  padding: 0.7em 1.5em;
+  box-sizing: border-box;
+  background: #1976d2;
+  color: #fff;
+  border: 2px solid #1565c0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+  font-weight: bold;
+  margin: 1em auto 1em auto;
+  display: block;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body.mobile-mode .inputDivisionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.mobile-mode .initializeText {
+  text-align: left;
+  margin-left: 0.5em;
+  flex: 0 1 auto;
+}
+body.mobile-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100vw;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+body.mobile-mode .inputDivision,
+body.mobile-mode .outputDivision,
+body.mobile-mode .executionDivision {
+  display: block;
+  width: 100% !important;
+  min-width: 0;
+  max-width: 100vw;
+  margin: 0 0 1rem 0;
+  position: static !important;
+  height: auto !important;
+  box-sizing: border-box;
+  clear: both;
+}
+/* Set the stacking order: inputDivision first, then outputDivision, then executionDivision */
+body.mobile-mode .inputDivision {
+  order: 1;
+}
+body.mobile-mode .outputDivision {
+  order: 2;
+}
+body.mobile-mode .executionDivision {
+  order: 3;
+}
+
+body.mobile-mode .imageSquare,
+body.mobile-mode .imageRectangle,
+body.mobile-mode .imageTriangle,
+body.mobile-mode .imageCircle {
+  position: static;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.mobile-mode .stepExecutionDisplay,
+body.mobile-mode .resultDisplay {
+  width: 100%;
+  overflow-x: auto;
+  min-width: 0;
+  box-sizing: border-box;
+}
+body.mobile-mode .mobile-overlay-content {
+  width: 90vw;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+body.mobile-mode .button,
+body.mobile-mode .okButton {
+  width: auto;
+  min-width: 120px;
+  max-width: 80vw;
+  font-size: 1.1em;
+  padding: 0.7em 1.5em;
+  box-sizing: border-box;
+  background: #1976d2;
+  color: #fff;
+  border: 2px solid #1565c0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+  font-weight: bold;
+  margin: 1em auto 1em auto;
+  display: block;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body.mobile-mode .button:hover,
+body.mobile-mode .okButton:hover {
+  background: #1565c0;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.25);
+}
+body.mobile-mode .button:hover,
+body.mobile-mode .okButton:hover {
+  background: #1565c0;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.25);
+}
+body.mobile-mode .questionTextRich {
+  margin: 0.2em 0 0.2em 0 !important;
+  padding: 0.3em 0.5em !important;
+  font-size: 1em;
+  line-height: 1.3;
+  min-height: unset;
+  height: auto !important;
+  text-align: left;
+  display: block;
+}
+body.mobile-mode .questionText {
+  margin: 0.2em 0 0.2em 0 !important;
+  padding: 0.3em 0.5em !important;
+  font-size: 1em;
+  line-height: 1.3;
+  min-height: unset;
+  height: auto !important;
+  text-align: left;
+  display: block;
+}
+body.mobile-mode .questionBlock {
+  font-size: 1em;
+  box-sizing: border-box;
+  text-align: left;
+  margin: 0.5em 0;
+  padding: 0.2em 0.5em;
+}
+body.mobile-mode .v-collapsible-instruction-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+/* Prevent overlap by ensuring all children are block and have no absolute positioning */
+body.mobile-mode .inputDivision *,
+body.mobile-mode .outputDivision *,
+body.mobile-mode .executionDivision * {
+  position: static !important;
+  box-sizing: border-box;
+  max-width: 100vw;
+  min-width: 0;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -133,10 +518,10 @@ body {
   width: 39%;
 }
 
+/* Center all division titles using flex for consistent alignment */
 .inputDivisionTitle,
 .outputDivisionTitle,
 .executionDivisionTitle {
-  text-align: center;
   color: #2a65a0;
   top: 0%;
   height: 9%;
@@ -147,6 +532,14 @@ body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background-color: #f8f8f8;
+}
+
+.inputDivisionTitle {
+  text-align: center;
+}
+
+.initializeText {
+  display: inline-block;
 }
 
 .initializePic,
@@ -523,6 +916,40 @@ img {
 }
 
 @media only screen and (max-width: 999px) {
+  /* Stack the main divisions vertically in mobile mode */
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100vw;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .inputDivision,
+  .outputDivision,
+  .executionDivision {
+    display: block;
+    width: 100% !important;
+    min-width: 0;
+    max-width: 100vw;
+    margin: 0 0 1rem 0;
+    position: static !important;
+    height: auto !important;
+    box-sizing: border-box;
+    clear: both;
+  }
+  /* Set the stacking order: inputDivision first, then outputDivision, then executionDivision */
+  .inputDivision {
+    order: 1;
+  }
+  .outputDivision {
+    order: 2;
+  }
+  .executionDivision {
+    order: 3;
+  }
+
   .imageSquare,
   .imageRectangle,
   .imageTriangle,
@@ -532,20 +959,14 @@ img {
     height: auto;
     max-width: 100%;
     margin-bottom: 1rem;
-  }
-  .inputDivision,
-  .outputDivision,
-  .executionDivision {
-    display: block;
-    width: 100%;
-    margin: 0 auto 1rem auto;
-    position: static;
-    height: auto;
+    box-sizing: border-box;
   }
   .stepExecutionDisplay,
   .resultDisplay {
     width: 100%;
     overflow-x: auto;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .mobile-overlay-content {
     width: 90vw;
@@ -557,13 +978,24 @@ img {
     width: 100%;
     font-size: 1.2em;
     padding: 1em;
+    box-sizing: border-box;
   }
   .questionBlock {
     font-size: 1em;
+    box-sizing: border-box;
   }
   .v-collapsible-instruction-container {
     width: 100%;
     box-sizing: border-box;
+  }
+  /* Prevent overlap by ensuring all children are block and have no absolute positioning */
+  .inputDivision *,
+  .outputDivision *,
+  .executionDivision * {
+    position: static !important;
+    box-sizing: border-box;
+    max-width: 100vw;
+    min-width: 0;
   }
 }
 .inputDivisionTitle,
