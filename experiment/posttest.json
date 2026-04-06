@@ -1,30 +1,56 @@
-[
-{"question":"1. Which of the following is an invalid function prototype?",
-"answers":{
-            "a":"float fun(int aa, int bb);",
-            "b":"float fun(int aa, int );",
-            "c":"float fun(float , int );",
-            "d":"float fun(int aa, bb);"
-          },
-"correctAnswer":"d"},
-
-{"question":"2. What is the return type of the function with prototype: `int func(char x, float v, double t);`",
-"answers":{
-            "a":"char",
-            "b":"int",
-            "c":"float",
-            "d":"double"
-          },
-"correctAnswer":"b"},
-
-{"question":"3. What is printed when this program is executed <br/> <img src='images/code.png'>",
-"answers":{
-            "a":"4",
-            "b":"5",
-            "c":"6",
-            "d":"7"
-          },
-"correctAnswer":"a"}
- 
-
-]
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Which of the following is an invalid function prototype?",
+      "answers": {
+        "a": "float fun(int aa, int bb);",
+        "b": "float fun(int aa, int );",
+        "c": "float fun(float , int );",
+        "d": "float fun(int aa, bb);"
+      },
+      "correctAnswer": "d",
+      "explanations": {
+        "a": "Incorrect, This is a valid function prototype with two named integer parameters.",
+        "b": "Incorrect, This is valid in C, as parameter names are optional in prototypes.",
+        "c": "Incorrect, This is a valid function prototype with two parameters of different types.",
+        "d": "Correct. This is invalid because 'bb' is not declared with a type; all parameters must have their types specified."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. What is the return type of the function with prototype: `int func(char x, float v, double t);`",
+      "answers": {
+        "a": "char",
+        "b": "int",
+        "c": "float",
+        "d": "double"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect, The return type is specified before the function name, which is 'int' in this case.",
+        "b": "Correct. The return type of the function is 'int', as specified in the prototype.",
+        "c": "Incorrect, 'float' is a parameter type, not the return type.",
+        "d": "Incorrect, 'double' is a parameter type, not the return type."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. What is printed when this program is executed <br/> <img src='images/code.png'>",
+      "answers": {
+        "a": "4",
+        "b": "5",
+        "c": "6",
+        "d": "7"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. The function f(7) recursively decrements x until x <= 4, then returns 4. So the output is 4.",
+        "b": "Incorrect, The function does not return 5; it returns 4 when x <= 4.",
+        "c": "Incorrect, The function does not return 6; it returns 4 when x <= 4.",
+        "d": "Incorrect, The function does not return 7; it returns 4 when x <= 4."
+      },
+      "difficulty": "beginner"
+    }
+  ]
+}

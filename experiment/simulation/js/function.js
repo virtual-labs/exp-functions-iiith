@@ -158,19 +158,19 @@ window.view = {
     }
     if (a !== "1")
       alert(
-        "Incorrect value of input variables(arguments). Calculating the area of a square only requires the length of the side of the square. Try again."
+        "Incorrect value of input variables(arguments). Calculating the area of a square only requires the length of the side of the square. Try again.",
       );
     else if (b !== "float")
       alert(
-        "Incorrect datatype of input variables(arguments). The value of the side of a square need not be an integer. Try again."
+        "Incorrect datatype of input variables(arguments). The value of the side of a square need not be an integer. Try again.",
       );
     else if (c !== "float")
       alert(
-        "Incorrect datatype for return type. The value of the area of a square need not be an integer. Try again."
+        "Incorrect datatype for return type. The value of the area of a square need not be an integer. Try again.",
       );
     else if (d !== "a*a")
       alert(
-        "Incorrect formula for calculating the area of a square. Try again."
+        "Incorrect formula for calculating the area of a square. Try again.",
       );
     else this.approveSquareInputs();
   },
@@ -199,19 +199,19 @@ window.view = {
     }
     if (a !== "2")
       alert(
-        "Incorrect value of input variables(arguments). Calculating the area of a rectangle requires the length of the two different parallel sides of the rectangle. Try again."
+        "Incorrect value of input variables(arguments). Calculating the area of a rectangle requires the length of the two different parallel sides of the rectangle. Try again.",
       );
     else if (b !== "float")
       alert(
-        "Incorrect datatype of input variables(arguments). The value of the sides of a rectangle need not be integers. Try again."
+        "Incorrect datatype of input variables(arguments). The value of the sides of a rectangle need not be integers. Try again.",
       );
     else if (c !== "float")
       alert(
-        "Incorrect datatype for return type. The value of the area of a rectangle need not be an integer. Try again."
+        "Incorrect datatype for return type. The value of the area of a rectangle need not be an integer. Try again.",
       );
     else if (d !== "a*b")
       alert(
-        "Incorrect formula for calculating the area of a rectangle. Try again."
+        "Incorrect formula for calculating the area of a rectangle. Try again.",
       );
     else this.approveRectangleInputs();
   },
@@ -240,19 +240,19 @@ window.view = {
     }
     if (a !== "1")
       alert(
-        "Incorrect value of input variables(arguments). Calculating the area of an equilateral triangle only requires the length of one of the sides of the triangle. Try again."
+        "Incorrect value of input variables(arguments). Calculating the area of an equilateral triangle only requires the length of one of the sides of the triangle. Try again.",
       );
     else if (b !== "float")
       alert(
-        "Incorrect datatype of input variables(arguments). The value of the side of an equilateral triangle need not be an integer. Try again."
+        "Incorrect datatype of input variables(arguments). The value of the side of an equilateral triangle need not be an integer. Try again.",
       );
     else if (c !== "float")
       alert(
-        "Incorrect datatype for return type. The value of the area of an equilateral triangle need not be an integer. Try again."
+        "Incorrect datatype for return type. The value of the area of an equilateral triangle need not be an integer. Try again.",
       );
     else if (d !== "correct")
       alert(
-        "Incorrect formula for calculating the area of an equilateral triangle. Try again."
+        "Incorrect formula for calculating the area of an equilateral triangle. Try again.",
       );
     else this.approveTriangleInputs();
   },
@@ -281,19 +281,19 @@ window.view = {
     }
     if (a !== "1")
       alert(
-        "Incorrect value of input variables(arguments). Calculating the area of circle only requires the radius. Try again."
+        "Incorrect value of input variables(arguments). Calculating the area of circle only requires the radius. Try again.",
       );
     else if (b !== "float")
       alert(
-        "Incorrect datatype of input variables(arguments). The value of the radius of the circle need not be an integer. Try again."
+        "Incorrect datatype of input variables(arguments). The value of the radius of the circle need not be an integer. Try again.",
       );
     else if (c !== "float")
       alert(
-        "Incorrect datatype for return type. The value of the area of the circle need not be an integer. Try again."
+        "Incorrect datatype for return type. The value of the area of the circle need not be an integer. Try again.",
       );
     else if (d !== "pi*a*a")
       alert(
-        "Incorrect formula for calculating the area of the circle. Try again."
+        "Incorrect formula for calculating the area of the circle. Try again.",
       );
     else this.approveCircleInputs();
   },
@@ -336,8 +336,23 @@ window.view = {
         instructionsOutput.classList.remove("hide");
       }
       this.hideInstructions();
-      document.getElementById("imageBlock").className = "imageBlock hide";
-      document.getElementById("imageComplex").className = "imageComplex";
+      // Only hide imageBlock if NOT in mobile mode
+      const isMobileMode = document.body.classList.contains("mobile-mode");
+      console.log("[replaceDivs] isMobileMode:", isMobileMode);
+      const imageBlock = document.getElementById("imageBlock");
+      const imageComplex = document.getElementById("imageComplex");
+      if (!isMobileMode) {
+        imageBlock.className = "imageBlock hide";
+        imageComplex.className = "imageComplex";
+        document.getElementById("tickSquare").className = "tick hide";
+        document.getElementById("tickRectangle").className = "tick hide";
+        document.getElementById("tickTriangle").className = "tick hide";
+        document.getElementById("tickCircle").className = "tick hide";
+      } else {
+        // On mobile, after OK, hide 4 shapes and show only final figure
+        imageBlock.className = "imageBlock hide";
+        imageComplex.className = "imageComplex";
+      }
       document.getElementById("calculateArea").className = "questionBlock";
     }
   },
@@ -446,7 +461,7 @@ window.view = {
         "Calculated area is: " +
           this.totalArea +
           "\n" +
-          "Correct value is: 132.02272"
+          "Correct value is: 132.02272",
       );
       this.resetToInitialState();
     } else {
@@ -456,9 +471,14 @@ window.view = {
   },
   init: function () {
     this.activateClicks();
+    // Hide imageComplex by default in mobile mode
+    if (document.body.classList.contains("mobile-mode")) {
+      var imageComplex = document.getElementById("imageComplex");
+      if (imageComplex) imageComplex.className = "imageComplex hide";
+    }
   },
 };
 
-
-window.onload = function() { view.init() }
-
+window.onload = function () {
+  view.init();
+};
