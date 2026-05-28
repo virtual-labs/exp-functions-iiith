@@ -1,3 +1,7 @@
-- [Function](http://en.wikipedia.org/wiki/Function_(computer_science))  
-- [Recursion](http://erwnerve.tripod.com/prog/recursion/recintro.htm)   
-
+1. [Functions in C (TutorialsPoint)](https://www.tutorialspoint.com/cprogramming/c_functions.htm)
+2. [Function (Wikipedia)](<https://en.wikipedia.org/wiki/Function_(computer_science)>)
+3. [C Programming - Functions (GeeksforGeeks)](https://www.geeksforgeeks.org/functions-in-c/)
+4. [Function Prototypes in C (Programiz)](https://www.programiz.com/c-programming/c-function-arguments)
+5. [Recursion (Wikipedia)](<https://en.wikipedia.org/wiki/Recursion_(computer_science)>)
+6. [Stanford CS106B Recursion Assignment](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1174/handouts/100%20Assignment%203.pdf)
+7. [MCQ Questions on Functions (GeeksforGeeks)](https://www.geeksforgeeks.org/c-language-questions-and-answers-functions/)
