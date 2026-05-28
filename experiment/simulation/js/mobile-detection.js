@@ -1,3 +1,45 @@
+// === DYNAMIC MAIN DIVISIONS WRAPPER FOR MOBILE ONLY ===
+function updateMainDivisionsWrapper() {
+  const body = document.body;
+  const isMobile = body.classList.contains("mobile-mode");
+  const inputDiv = document.querySelector(".inputDivision");
+  const outputDiv = document.querySelector(".outputDivision");
+  const execDiv = document.querySelector(".executionDivision");
+  let wrapper = document.querySelector(".mainDivisions");
+
+  if (isMobile) {
+    // If wrapper doesn't exist, create and wrap
+    if (!wrapper) {
+      wrapper = document.createElement("div");
+      wrapper.className = "mainDivisions";
+      // Insert wrapper before the first of the three divisions
+      if (inputDiv) {
+        body.insertBefore(wrapper, inputDiv);
+      } else if (outputDiv) {
+        body.insertBefore(wrapper, outputDiv);
+      } else if (execDiv) {
+        body.insertBefore(wrapper, execDiv);
+      } else {
+        body.appendChild(wrapper);
+      }
+      // Move the three divisions into the wrapper
+      if (inputDiv) wrapper.appendChild(inputDiv);
+      if (outputDiv) wrapper.appendChild(outputDiv);
+      if (execDiv) wrapper.appendChild(execDiv);
+    }
+  } else {
+    // If wrapper exists, unwrap the divisions
+    if (wrapper) {
+      // Move children out of wrapper
+      while (wrapper.firstChild) {
+        body.insertBefore(wrapper.firstChild, wrapper);
+      }
+      wrapper.remove();
+    }
+  }
+}
+window.addEventListener("DOMContentLoaded", updateMainDivisionsWrapper);
+window.addEventListener("resize", updateMainDivisionsWrapper);
 // Mobile Detection and Overlay Script
 // This script detects mobile devices and shows a desktop optimization warning
 
@@ -250,7 +292,6 @@ class MobileDetection {
   continueAnyway() {
     // Add mobile-mode class to body for robust mobile CSS
     document.body.classList.add("mobile-mode");
-    this.forceDesktopMode();
     this.hideOverlay();
   }
 
