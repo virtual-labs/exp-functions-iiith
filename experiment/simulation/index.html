@@ -2,23 +2,27 @@
 <html>
 
 <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Functions | VLabs</title>
 	<link rel="stylesheet" type="text/css" href="css/functions.css" />
 	<script type="text/javascript" src="js/function.js"></script>
+	<script type="text/javascript" src="js/mobile-detection.js"></script>
 </head>
 
 <body>
-	<div class="v-collapsible-instruction-container instructionsOutput hide"
-		style="border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
-		<div class="v-collapsible">
+	<div class="v-collapsible-instruction-container instructionsOutput hide">
+		<ul class="v-collapsible">
 			<li class="instr-font">
 				<code style="font-size: smaller;">totalArea = area_circle(radius) + area_rect(length, width) + ...</code>
 			</li>
 			<li class="instr-font">
 				To calculate the area of a semicircle, use the formula 0.5*area_circle(r), where r is the radius of circle.
 			</li>
-		</div>
+		</ul>
 	</div>
 
+	<div class="mainDivisions">
 		<div class="inputDivision">
 
 			<div class="inputDivisionTitle">
@@ -27,136 +31,96 @@
 			</div>
 			<div class="inputDivisionBody" id='inputDivision'>
 				<div class="questionBlock" id='instructions'>
-					<p class="instruction">1. Click on the square to define a function for calculating the area of a
-						square.</p>
+					<p class="instruction">1. Click on the square in the Code Output panel to define a function for
+						calculating the area of a square.</p>
 					<p class="instruction">2. Similarly define functions for the other geometrical figures.</p>
-					<p class="instruction">3. The defined functions are shown in the middle window.</p>
+					<p class="instruction">3. The defined functions are shown in the Step Execution panel.</p>
 					<p class="instruction">4. Now make appropriate function calls in the main program to compute the
 						area of the figure displayed.</p>
 					<p class="instruction">5. Press execute to execute the code and see the output.</p>
 				</div><!-- end of instructions -->
 				<div class="questionBlock hide" id='questionSquare'>
 					<div class="questionText">1. Enter number of arguments :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group1"
-							value="1"><label class="radioText">1</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group1"
-							value="2"><label class="radioText">2</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group1"
-							value="3"><label class="radioText">3</label></div><!-- end of 1st question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group1" value="1"><span class="radioText">1</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group1" value="2"><span class="radioText">2</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group1" value="3"><span class="radioText">3</span></label><!-- end of 1st question -->
 
 					<div class="questionText">2. Enter datatype of arguments :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group2"
-							value="int"><label class="radioText">int</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group2"
-							value="float"><label class="radioText">float</label></div><!-- end of 2ns question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group2" value="int"><span class="radioText">int</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group2" value="float"><span class="radioText">float</span></label><!-- end of 2ns question -->
 
 					<div class="questionTextRich">3. Enter return datatype of the function :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group3"
-							value="int"><label class="radioText">int</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group3"
-							value="float"><label class="radioText">float</label></div><!-- end of 3rd question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group3" value="int"><span class="radioText">int</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group3" value="float"><span class="radioText">float</span></label><!-- end of 3rd question -->
 
 					<div class="questionTextRich">4. Choose formula for area of the square :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group4"
-							value="a*a"><label class="radioText">a*a</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group4"
-							value="&pi;*a*a" <label class="radioText">&pi;*a*a</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group4"
-							value="2*&pi;*a"><label class="radioText">2*&pi;*a</label></div><!-- end of 4th question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group4" value="a*a"><span class="radioText">a*a</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group4" value="4*a"><span class="radioText">4*a</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group4" value="a+a"><span class="radioText">a+a</span></label><!-- end of 4th question -->
 
 					<button class="button okButton" id='okSquare'>OK</button>
 				</div><!-- end of question block of square -->
 				<div class="questionBlock hide" id='questionRectangle'>
 					<div class="questionText">1. Enter number of arguments :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group5"
-							value="1"><label class="radioText">1</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group5"
-							value="2"><label class="radioText">2</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group5"
-							value="3"><label class="radioText">3</label></div><!-- end of 1st question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group5" value="1"><span class="radioText">1</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group5" value="2"><span class="radioText">2</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group5" value="3"><span class="radioText">3</span></label><!-- end of 1st question -->
 
 					<div class="questionText">2. Enter datatype of arguments :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group6"
-							value="int"><label class="radioText">int</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group6"
-							value="float"><label class="radioText">float</label></div><!-- end of 2nd question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group6" value="int"><span class="radioText">int</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group6" value="float"><span class="radioText">float</span></label><!-- end of 2nd question -->
 
 					<div class="questionTextRich">3. Enter return datatype of the function :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group7"
-							value="int"><label class="radioText">int</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group7"
-							value="float"><label class="radioText">float</label></div><!-- end of 3rd question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group7" value="int"><span class="radioText">int</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group7" value="float"><span class="radioText">float</span></label><!-- end of 3rd question -->
 
 					<div class="questionTextRich">4. Choose formula for area of the rectangle :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group8"
-							value="a*a"><label class="radioText">a*a</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group8"
-							value="a*b"><label class="radioText">a*b</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group8"
-							value="2*&pi;*a"><label class="radioText">2*&pi;*a</label></div><!-- end of 4th question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group8" value="a*a"><span class="radioText">a*a</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group8" value="a*b"><span class="radioText">a*b</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group8" value="2*&pi;*a"><span class="radioText">2*&pi;*a</span></label><!-- end of 4th question -->
 
 					<button class="button okButton" id='okRectangle'>OK</button>
 				</div><!-- end of question block of rectangle -->
 				<div class="questionBlock hide" id='questionTriangle'>
 					<div class="questionText">1. Enter number of arguments :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group9"
-							value="1"><label class="radioText">1</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group9"
-							value="2"><label class="radioText">2</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group9"
-							value="3"><label class="radioText">3</label></div><!-- end of 1st question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group9" value="1"><span class="radioText">1</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group9" value="2"><span class="radioText">2</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group9" value="3"><span class="radioText">3</span></label><!-- end of 1st question -->
 
 					<div class="questionText">2. Enter datatype of arguments :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group10"
-							value="int"><label class="radioText">int</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group10"
-							value="float"><label class="radioText">float</label></div><!-- end of 2nd question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group10" value="int"><span class="radioText">int</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group10" value="float"><span class="radioText">float</span></label><!-- end of 2nd question -->
 
 					<div class="questionTextRich">3. Enter return datatype of the function :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group11"
-							value="int"><label class="radioText">int</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group11"
-							value="float"><label class="radioText">float</label></div><!-- end of 3rd question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group11" value="int"><span class="radioText">int</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group11" value="float"><span class="radioText">float</span></label><!-- end of 3rd question -->
 
 					<div class="questionTextRich">4. Choose formula for area of the triangle :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group12"
-							value="a*a"><label class="radioText">a*a</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group12"
-							value="pi*a*a"><label class="radioText">&pi;*a*a</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group12"
-							value="correct"><label class="radioText">(&radic;3/4.0)*a*a</label></div>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group12" value="a*a"><span class="radioText">a*a</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group12" value="pi*a*a"><span class="radioText">&pi;*a*a</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group12" value="correct"><span class="radioText">(&radic;3/4.0)*a*a</span></label>
 					<!-- end of 4th question -->
 
 					<button class="button okButton" id='okTriangle'>OK</button>
 				</div><!-- end of question block of triangle -->
 				<div class="questionBlock hide" id='questionCircle'>
 					<div class="questionText">1. Enter number of arguments :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group13"
-							value="1"><label class="radioText" for="male">1</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group13"
-							value="2"><label class="radioText" for="male">2</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group13"
-							value="3"><label class="radioText" for="male">3</label></div><!-- end of 1st question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group13" value="1"><span class="radioText">1</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group13" value="2"><span class="radioText">2</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group13" value="3"><span class="radioText">3</span></label><!-- end of 1st question -->
 
 					<div class="questionText">2. Enter datatype of arguments :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group14"
-							value="int"><label class="radioText">int</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group14"
-							value="float"><label class="radioText">float</label></div><!-- end of 2nd question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group14" value="int"><span class="radioText">int</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group14" value="float"><span class="radioText">float</span></label><!-- end of 2nd question -->
 
 					<div class="questionTextRich">3. Enter return datatype of the function :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group15"
-							value="int"><label class="radioText">int</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group15"
-							value="float"><label class="radioText">float</label></div><!-- end of 3rd question -->
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group15" value="int"><span class="radioText">int</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group15" value="float"><span class="radioText">float</span></label><!-- end of 3rd question -->
 
 					<div class="questionTextRich">4. Choose formula for area of the circle :</div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group16"
-							value="a*a"><label class="radioText">a*a</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group16"
-							value="pi*a*a"><label class="radioText">&pi;*a*a</label></div>
-					<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group16"
-							value="incorrect"><label class="radioText">(&radic;3/4.0)*a*a</label></div>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group16" value="a*a"><span class="radioText">a*a</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group16" value="pi*a*a"><span class="radioText">&pi;*a*a</span></label>
+					<label class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group16" value="incorrect"><span class="radioText">(&radic;3/4.0)*a*a</span></label>
 					<!-- end of 4th question -->
 
 					<button class="button okButton" id='okCircle'>OK</button>
@@ -182,8 +146,7 @@
 						<input class="textArea" type="text">
 					</div>
 
-					<div class="programTail">&emsp;&emsp;printf("Total Area : %f/n", totalArea);<br>&emsp;&emsp;return
-						0;}</div>
+					<div class="programTail">&emsp;printf("Total Area : %f\n", totalArea);<br>&emsp;return 0;<br>}</div>
 
 					<button class="button okButton" id='btnExecute'>EXECUTE</button>
 				</div><!-- end of tatal area calculation block -->
@@ -231,7 +194,7 @@
 				<div class="imageComplex hide"  id='imageComplex'></div>
 			</div><!-- end of resultDisplay -->
 		</div><!-- end of outputDivision -->
-	</div>
+	</div><!-- end of mainDivisions -->
 </body>
 
 </html>
