@@ -1,251 +1,279 @@
-*{padding: 0 ; margin: 0 ;}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 body {
-	min-height: 564px;
-	min-width: 1100px;
-    text-align: center;
-    height: 100%;
+    min-height: 100vh;
     font-size: 100%;
-    position:absolute; top: 0%; bottom: 0%; right: 0%; left: 0%;
+    text-align: center;
+    color: #464646;
+    background-color: #fff;
 }
 
-#header {
-	position: absolute;
-	top: 0;bottom: 0;left: 0;right: 0;
-	width: 100%;
-	height: 6%;
-	font-size: 4vh;
-	padding-top: 1.3vmin;
-}
+/* ---------- Buttons ---------- */
 
 .button, .buttonDisable {
-	position: relative;
-	padding: 0.5em 1em;
-  	cursor: pointer;
-  	border-radius: 0.2em; 
-  	overflow: visible;
-  	outline: none;
-	white-space: nowrap;
-  	-moz-background-clip: padding; 
+    position: relative;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 0.2em;
+    outline: none;
+    white-space: nowrap;
     background-clip: padding-box;
-	border: 1px solid #d4d4d4;
-    margin: 0;
+    border: 1px solid #d4d4d4;
     text-align: center;
-	zoom: 1;
-    *display: inline;
     text-decoration: none;
     display: inline-block;
 }
 
-#header, .button {
-	text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
-	border-color: #3072b3;
+.button {
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+    border-color: #3072b3;
     border-bottom-color: #2a65a0;
-	color: #fff;
-	background-color: #3c8dde;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
-    background-image: -moz-linear-gradient(#599bdc, #3072b3);
-    background-image: -o-linear-gradient(#599bdc, #3072b3);
+    color: #fff;
+    background-color: #3c8dde;
     background-image: linear-gradient(#599bdc, #3072b3);
 }
 
+.button:hover {
+    background-image: linear-gradient(#4f93d8, #2a65a0);
+}
+
 .buttonDisable {
-   	text-shadow: 1px 1px 0 #fff;
-   	color: #999999;
+    text-shadow: 1px 1px 0 #fff;
+    color: #999999;
     background-color: #ececec;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
-    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
-    background-image: -ms-linear-gradient(#f4f4f4, #ececec);
-    background-image: -o-linear-gradient(#f4f4f4, #ececec);
     background-image: linear-gradient(#f4f4f4, #ececec);
 }
 
-.buttonDisable::-moz-focus-inner, .button::-moz-focus-inner {
-    padding: 0;
-    border: 0;
+.okButton {
+    display: block;
+    font-size: 14px;
+    width: 80%;
+    min-height: 34px;
+    margin: 20px auto 24px;
 }
 
-.vlabsIcon {
-    position: absolute;
-    top: 1.2%;
-    left: 8%;
-    width: 15vh;
-    height: 6.7vh;
-    background-image: url('iiitLogo.png');
-    background-repeat: no-repeat;
-    background-color: transparent;
+/* ---------- Page layout: three panels ---------- */
+
+.mainDivisions {
+    display: flex;
+    gap: 2%;
+    padding: 16px 3%;
+    height: 100vh;
+    min-height: 560px;
 }
 
-.inputDivision, .outputDivision, .executionDivision {
-    top: 11%;
-    height: 87%; 
-    position: absolute;
-    border: 1px solid #CCC;
+.instructionsOutput:not(.hide) + .mainDivisions {
+    height: calc(100vh - 90px);
+}
+
+.inputDivision, .executionDivision, .outputDivision {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    color: #464646;
-}
-
-.executionDivision {
-    left: 25%;
-    width: 30%;
-    overflow-x: auto;
+    overflow: hidden;
 }
 
 .inputDivision {
-    left: 3%;
-    width: 19%;
+    flex: 0 0 22%;
+}
+
+.executionDivision {
+    flex: 0 0 32%;
 }
 
 .outputDivision {
-    left: 58%;
-    width: 39%;
+    flex: 1 1 auto;
 }
 
 .inputDivisionTitle, .outputDivisionTitle, .executionDivisionTitle {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    min-height: 56px;
+    padding: 8px;
+    font-size: 1.3em;
     color: #2a65a0;
-    top: 0%;
-    height: 9%;
-    text-decoration: none;
-    text-align: center;
     text-shadow: 1px 1px 0 #fff;
-    width: 100%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
 }
 
 .initializePic, .executionPic, .outputPic {
-	margin-left: 10%;
-	float: left;
-	height: 100%;
+    flex: 0 0 32px;
+    height: 32px;
     background-repeat: no-repeat;
+    background-position: center;
     background-color: transparent;
 }
 
 .initializePic {
-	margin-top: 1.5vh;
-	width: 20%;
-	background-image: url('../images/initIcon.png');
-}
-
-.initializeText {
-	width: 60%;
-	float: left;
-	height: 100%; 
+    background-image: url('../images/initIcon.png');
 }
 
 .executionPic {
-	margin-top: 1vh;
-	width: 25%;
-	background-image: url('../images/pageIcon.png');
-}
-
-.executionText {
-	text-align: left;
-	width: 50%;
-	float: left;
-	height: 100%;
+    background-image: url('../images/pageIcon.png');
 }
 
 .outputPic {
-	margin-top: 1.6vh;
-	width: 25%;
-	background-image: url('../images/outputIcon.png');
+    background-image: url('../images/outputIcon.png');
 }
 
-.outputText {
-	text-align: left;
-	width: 50%;
-	float: left;
-	height: 100%;
-}
-
-.inputDivisionBody {
-	position: absolute;
-	top: 9%;
-	left: 0%;
-	width: 100%;
-	height: 91%;
-	text-align: center;
-	font-size: 1em;
-	border-top: 1px solid #CCC;
+/* Panel bodies scroll inside the panel, so nothing is cut off */
+.inputDivisionBody, .stepExecutionDisplay, .resultDisplay {
+    flex: 1 1 auto;
+    min-height: 0;
     overflow: auto;
 }
 
+.hide {
+    display: none !important;
+}
+
+/* ---------- Initialize panel ---------- */
+
+.instruction {
+    font-size: 1em;
+    margin: 15px 5% 0;
+    text-align: left;
+    color: #464646;
+}
+
 .questionBlock {
-	width: 100%;
-	height: 100%;
-	float: left;
-	min-width: 200px;
+    padding-bottom: 8px;
 }
 
 .questionText, .questionTextRich {
-    float: left;
     text-align: left;
-    width: 95%;
-    min-width: 70px;
-    margin-left: 5%;
-    margin-top: 20px; 
+    margin: 18px 5% 6px;
 }
 
-.programInitialization, .computeArea, .programTail{
-    padding: 5px;
-    float: left;
-    text-align: left;
-    width: 76%;
-    font-size: 17px;
-    margin-left: 10%;
-    margin-top: 10px; 
-    border:1px solid #CCC;
-}
-
-
-.programInitialization {
-   height: 8%;
-}
-
-.computeArea {
-    height: 4%;
-}
-
-.programTail {
-    height: 15%;
-}
-
-#inputBoxSection {
-    display: flex-column;
-    flex-wrap: wrap;
+.radioButtonHolder {
+    display: flex;
     align-items: center;
+    gap: 8px;
+    min-height: 28px;
+    padding: 2px 0 2px 8%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.radiobutton {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.programInitialization, .computeArea, .programTail {
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 84%;
+    margin: 10px auto 0;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+}
+
+/* One row per term: "+ [box]", the first box has no "+" */
+#inputBoxSection {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    align-items: center;
+    row-gap: 6px;
+    width: 84%;
+    margin: 8px auto 0;
 }
 
 .textArea {
-    margin-top: 10px;
+    grid-column: 2;
+    width: 100%;
+    height: 30px;
+    padding: 0 6px;
     text-align: center;
     font-size: 15px;
-    height: 21px;
-    width: 70%;
-    min-width: 100px;
-    border: 1px solid #CCC;
-    outline: none;
+    border: 1px solid #ccc;
     border-radius: 3px;
-    margin-right: 5px; /* Adjust spacing between input boxes */
+    outline: none;
+}
+
+.textArea:focus {
+    border-color: #3072b3;
 }
 
 .plusSign {
-    display: block;
-    margin-left: 5px;
-    font-size: 20px;
+    grid-column: 1;
+    text-align: left;
+    font-size: 18px;
 }
 
+/* ---------- Step Execution panel ---------- */
+
+.stepExecutionDisplay {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.functionForSquare, .functionForRectangle, .functionForTriangle, .functionForCircle {
+    flex: 1 0 auto;
+    min-height: 120px;
+    padding: 4px 8px 6px;
+}
+
+.functionForSquare, .functionForRectangle, .functionForTriangle {
+    border-bottom: 1px dashed #ccc;
+}
+
+.textColor {
+    color: #727272;
+    opacity: 0.6;
+}
+
+#functionSquare, #functionRectangle, #functionCircle, #functionTriangle {
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* ---------- Code Output panel ---------- */
+
+.resultDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+}
+
+.imageBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2%;
+    width: 100%;
+    height: 100%;
+    max-width: 560px;
+    max-height: 560px;
+}
 
 .imageSquare, .imageRectangle, .imageTriangle, .imageCircle {
-    position: absolute;
-    height: 49%;
-    width: 49%;
+    position: relative;
+    min-height: 120px;
+    border: 1px dashed black;
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-origin: content-box;
     background-color: transparent;
-    background-position:center;
+    padding: 10%;
     cursor: pointer;
     opacity: 0.3;
 }
@@ -255,298 +283,154 @@ body {
 }
 
 .imageSquare {
-    left: 0%;
-    top: 0%;
     background-image: url('../images/square.jpg');
-    border: 1px dashed black;
 }
 
 .imageRectangle {
-    left: 50%;
-    top: 0%;
     background-image: url('../images/rectangle.jpg');
-    border: 1px dashed black;
 }
 
 .imageTriangle {
-    left: 0%;
-    top: 50%;
     background-image: url('../images/triangle.jpg');
-    border: 1px dashed black;
 }
 
 .imageCircle {
-    left: 50%;
-    top: 50%;
     background-image: url('../images/circle.jpg');
-    border: 1px dashed black;
-}
-
-.imageComplex {
-    left: 0%;
-    top: 0%;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-image: url('../images/figure.jpg');
 }
 
 .disabledImage {
-	pointer-events: none;
+    pointer-events: none;
 }
 
 .tick {
-	position: absolute;
-	left: 6px;
-	top: 6px;
-	width: 41px;
-	height: 41px;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 36px;
+    height: 36px;
 }
 
-.functionForSquare, .functionForRectangle, .functionForTriangle, .functionForCircle {
-    font-size: 17px;
-    position: absolute;
-    left: 0%;
+.imageComplex {
     width: 100%;
+    height: 100%;
+    max-width: 640px;
+    aspect-ratio: 520 / 490;
+    background-image: url('../images/figure.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
 }
 
-.functionForSquare, .functionForRectangle, .functionForTriangle{
-    border-bottom: 1px dashed #CCC;
-}
+/* ---------- Hints shown above the panels at the last stage ---------- */
 
-.textColor {
-	color: #727272;
-	margin-right: 5%;
-	opacity: 0.5;
-}
-
-
-.okButton {
-	font-size: 13px;
-	min-width: 150px;
-	float: left;
-	margin-top: 20px;
-    margin-bottom: 40px;
-	margin-left: 10%;
-    height: 30px;
-    width: 80%;
-}
-
-.radioButtonHolder {	
-    width: 100%;
-    float: left;
-    text-align: left;
-}
-
-.radiobutton {
-	margin-left: 7%;
-	float: left;
-    cursor: pointer;
-}
-
-.radioText {
- 	float: left;
-	text-align: left;
-}
-
-.resultDisplay {
-    position: absolute;
-    top: 9%;
-    left: 0%;
-    width: 100%;
-    height: 90%;
-    border-top: 1px solid #CCC;
-}
-
-.imageBlock {
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-}
-
-.stepExecutionDisplay {
-    padding-left: 2%;
-    position: absolute;
-    top: 9%;
-    left: 0%;
-    width: 98%;
-    height: 90%;
-    text-align: center;
-    border-top: 1px solid #CCC;
-}
-
-.hide {
-	display: none;
-}
-
-.show {
-    display: block;
-}
-
-#functionSquare, #functionRectangle, #functionCircle, #functionTriangle {
-	margin-left: 30%;
-	text-align: left;
-}
-
-.instruction {
-    float: left;
-    font-size: 1em;
-    margin-top: 15px;
-    text-align: left;
-    width: 90%;
-    margin-left: 5%;
-    color: #464646;
-}
-
-@media only screen and (min-width: 1000px) {
-
-.inputDivisionTitle, .outputDivisionTitle, .executionDivisionTitle {
-    font-size: 1.3em;
-}
-
-.initializeText, .executionText, .outputText {
-    padding-top: 1.8vmin; 
-}
-
-.functionForSquare, .functionForRectangle, .functionForTriangle, .functionForCircle {
-    height: 24.9%;
-    overflow: auto;
-}
-
-.functionForSquare{
-    top: 0%;
-}
-
-.functionForRectangle {
-    top: 25%;
-}
-
-.functionForTriangle {
-    top: 50%;
-}
-
-.functionForCircle {
-    top: 75%;
-}
-
-.radioButtonHolder {    
-    height: 24px;
-} 
-
-.radiobutton {
-    width: 12%;
-    height: 60%;
-}
-
-.radioText {
-    font-size: 1em;
-    width: 68%;
-    height: 55%;
-}
-
-.questionText {
-    height: 5%;
-    min-height: 30px; 
-    font-size: 1em;
-}
-
-.questionTextRich {
-    height: 9%;
-    min-height: 60px;
-    font-size: 1em;
-}
-
-}
-
-@media only screen and (max-width: 999px) and ( min-width: 600px) {
-
-.inputDivisionTitle, .outputDivisionTitle, .executionDivisionTitle {
-    font-size: 1.2em;
-}
-
-.stepExecutionDisplay {
-    line-height: 130%;
-    font-size: 1.2em;
-}
-
-.initializeText, .executionText, .outputText {
-    padding-top: 1.9vmin; 
-}
-
-.functionForSquare, .functionForRectangle, .functionForTriangle, .functionForCircle {
-    height: 160px;
-}
-
-.functionForSquare{
-    top: 0px;
-}
-
-.functionForRectangle {
-    top: 164px;
-}
-
-.functionForTriangle {
-    top: 324px;
-}
-
-.functionForCircle {
-    top: 486px;
-}
-
-.radioButtonHolder {    
-    height: 40px;
-} 
-
-.radiobutton {
-    width: 25%;
-    height: 57%;
-}
-
-.radioText {
-    font-size: 1.2em;
-    width: 60%;
-    height: 60%; 
-}
-
-.questionText {
-    height: 15%; 
-    font-size: 1.2em;
-}
-
-.questionTextRich {
-    height: 20%;
-    font-size: 1.2em;
-}
-
-}
-
-/* Container styling */
 .v-collapsible-instruction-container {
-    border: 1px solid #ddd; /* Border for the container */
-    border-radius: 5px; /* Rounded corners */
-    margin-bottom: 10px; /* Space below the container */
+    margin: 10px 3% 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-/* Collapsible header styling */
 .v-collapsible {
-    background-color: #f1f1f1; /* Background color for the header */
-    padding: 10px; /* Padding inside the header */
-    border-top-left-radius: 5px; /* Rounded top-left corner */
-    border-top-right-radius: 5px; /* Rounded top-right corner */
-    cursor: pointer; /* Pointer cursor for interaction */
-    font-weight: bold; /* Bold text for emphasis */
+    list-style: disc inside;
+    background-color: #f1f1f1;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: left;
 }
 
-/* Content area styling */
-#procedure-message {
-    padding: 10px; /* Padding inside the content area */
-}
-
-/* List item styling */
 .instr-font {
-    font-size: 15px; /* Font size for the instructions */
-    line-height: 1; /* Line height for readability */
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ---------- Small screens: stack the panels ---------- */
+
+@media only screen and (max-width: 899px) {
+    .mainDivisions,
+    .instructionsOutput:not(.hide) + .mainDivisions {
+        flex-direction: column;
+        gap: 16px;
+        height: auto;
+        min-height: 0;
+        padding: 12px 16px;
+    }
+
+    .inputDivision, .executionDivision, .outputDivision {
+        flex: 0 0 auto;
+    }
+
+    /* Shapes and figure come right after the inputs, the generated code last */
+    .inputDivision {
+        order: 1;
+    }
+
+    .outputDivision {
+        order: 2;
+    }
+
+    .executionDivision {
+        order: 3;
+    }
+
+    /* Last stage: show the composite figure above the function-call boxes */
+    .stageCalculate .outputDivision {
+        order: 0;
+    }
+
+    .inputDivisionTitle, .outputDivisionTitle, .executionDivisionTitle {
+        min-height: 48px;
+        font-size: 1.15em;
+    }
+
+    .inputDivisionBody, .stepExecutionDisplay, .resultDisplay {
+        overflow: visible;
+    }
+
+    .instruction {
+        margin-top: 10px;
+    }
+
+    .instruction:last-child {
+        margin-bottom: 12px;
+    }
+
+    .radioButtonHolder {
+        min-height: 40px;
+        font-size: 1.05em;
+    }
+
+    .radiobutton {
+        width: 20px;
+        height: 20px;
+    }
+
+    .okButton {
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    .textArea {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .imageBlock {
+        aspect-ratio: 1 / 1;
+        height: auto;
+    }
+
+    .functionForSquare, .functionForRectangle, .functionForTriangle, .functionForCircle {
+        min-height: 0;
+    }
+
+    .stepExecutionDisplay {
+        font-size: 16px;
+        overflow-x: auto;
+    }
+
+    .v-collapsible-instruction-container {
+        margin: 12px 16px 0;
+    }
 }

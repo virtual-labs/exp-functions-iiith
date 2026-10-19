@@ -19,9 +19,6 @@ window.view = {
     this.addClickEvent("imageSquare", function () {
       view.showSquareInputs();
     });
-    this.addTouchEvent("imageSquare", function () {
-      view.showSquareInputs();
-    });
     this.addClickEvent("okSquare", function () {
       view.validateSquareInputs();
     });
@@ -58,6 +55,12 @@ window.view = {
   showQuestionBlock: function (id1, id2) {
     document.getElementById(id1).className = "questionBlock";
     document.getElementById(id2).style.opacity = "1";
+    this.scrollIntoViewOnSmallScreen("inputDivision");
+  },
+  // On small screens the panels are stacked, so bring the relevant one into view
+  scrollIntoViewOnSmallScreen: function (id) {
+    if (window.matchMedia("(max-width: 899px)").matches)
+      document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
   },
   showSquareInputs: function () {
     this.hideQuestionBlock("questionRectangle", "imageRectangle");
@@ -101,6 +104,7 @@ window.view = {
     document.getElementById("imageRectangle").style.opacity = "0.3";
     this.i++;
     this.replaceDivs();
+    this.scrollIntoViewOnSmallScreen(this.i === 4 ? "resultDisplay" : "imageBlock");
   },
   approveSquareInputs: function () {
     this.displayFunctionForSquare();
@@ -111,6 +115,7 @@ window.view = {
     document.getElementById("imageSquare").style.opacity = "0.3";
     this.i++;
     this.replaceDivs();
+    this.scrollIntoViewOnSmallScreen(this.i === 4 ? "resultDisplay" : "imageBlock");
   },
   approveCircleInputs: function () {
     this.displayFunctionForCircle();
@@ -121,6 +126,7 @@ window.view = {
     document.getElementById("imageCircle").style.opacity = "0.3";
     this.i++;
     this.replaceDivs();
+    this.scrollIntoViewOnSmallScreen(this.i === 4 ? "resultDisplay" : "imageBlock");
   },
   approveTriangleInputs: function () {
     this.displayFunctionForTriangle();
@@ -132,6 +138,7 @@ window.view = {
     document.getElementById("imageTriangle").style.opacity = "0.3";
     this.i++;
     this.replaceDivs();
+    this.scrollIntoViewOnSmallScreen(this.i === 4 ? "resultDisplay" : "imageBlock");
   },
   validateSquareInputs: function () {
     var options1, options2, options3, options4;
@@ -311,7 +318,7 @@ window.view = {
   },
   displayFunctionForCircle: function () {
     document.getElementById("functionCircle").innerHTML +=
-      "float area_circle (float a)<br>{<br>&emsp;float area = 3.14*a*a;<br>&emsp;return area;<br>}";
+      "float area_circle (float a)<br>{<br>&emsp;float area = M_PI*a*a;<br>&emsp;return area;<br>}";
   },
   addClickEvent: function (id, method) {
     var element = document.getElementById(id);
@@ -336,24 +343,11 @@ window.view = {
         instructionsOutput.classList.remove("hide");
       }
       this.hideInstructions();
-      // Only hide imageBlock if NOT in mobile mode
-      const isMobileMode = document.body.classList.contains("mobile-mode");
-      console.log("[replaceDivs] isMobileMode:", isMobileMode);
-      const imageBlock = document.getElementById("imageBlock");
-      const imageComplex = document.getElementById("imageComplex");
-      if (!isMobileMode) {
-        imageBlock.className = "imageBlock hide";
-        imageComplex.className = "imageComplex";
-        document.getElementById("tickSquare").className = "tick hide";
-        document.getElementById("tickRectangle").className = "tick hide";
-        document.getElementById("tickTriangle").className = "tick hide";
-        document.getElementById("tickCircle").className = "tick hide";
-      } else {
-        // On mobile, after OK, hide 4 shapes and show only final figure
-        imageBlock.className = "imageBlock hide";
-        imageComplex.className = "imageComplex";
-      }
+      // All four functions are defined: replace the shapes with the composite figure
+      document.getElementById("imageBlock").className = "imageBlock hide";
+      document.getElementById("imageComplex").className = "imageComplex";
       document.getElementById("calculateArea").className = "questionBlock";
+      document.querySelector(".mainDivisions").classList.add("stageCalculate");
     }
   },
   area_sq: function (param, functionCall, beforeFunctionCall) {
@@ -459,7 +453,7 @@ window.view = {
     if (this.correctInputs === 7) {
       alert(
         "Calculated area is: " +
-          this.totalArea +
+          this.totalArea.toFixed(5) +
           "\n" +
           "Correct value is: 132.02272",
       );
@@ -471,11 +465,6 @@ window.view = {
   },
   init: function () {
     this.activateClicks();
-    // Hide imageComplex by default in mobile mode
-    if (document.body.classList.contains("mobile-mode")) {
-      var imageComplex = document.getElementById("imageComplex");
-      if (imageComplex) imageComplex.className = "imageComplex hide";
-    }
   },
 };
 
