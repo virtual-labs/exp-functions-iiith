@@ -1,0 +1,125 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Which of the following is an invalid function prototype?",
+      "answers": {
+        "a": "float fun(int aa, int bb);",
+        "b": "float fun(int aa, int );",
+        "c": "float fun(float , int );",
+        "d": "float fun(int aa, bb);"
+      },
+      "correctAnswer": "d",
+      "explanations": {
+        "a": "Incorrect. This is a valid function prototype with two named integer parameters.",
+        "b": "Incorrect. This is valid in C, as parameter names are optional in prototypes.",
+        "c": "Incorrect. This is a valid function prototype with two parameters of different types.",
+        "d": "Correct. This is invalid because 'bb' is not declared with a type; all parameters must have their types specified."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. What is the return type of the function with prototype: `int func(char x, float v, double t);`",
+      "answers": {
+        "a": "char",
+        "b": "int",
+        "c": "float",
+        "d": "double"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. The return type is specified before the function name, which is 'int' in this case.",
+        "b": "Correct. The return type of the function is 'int', as specified in the prototype.",
+        "c": "Incorrect. 'float' is a parameter type, not the return type.",
+        "d": "Incorrect. 'double' is a parameter type, not the return type."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. What is printed when this program is executed?<br/>  <img src='./images/question3-posttest.png' alt='code snippet' />",
+
+      "answers": {
+        "a": "4",
+        "b": "5",
+        "c": "6",
+        "d": "7"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. The function f(7) recursively decrements x until x <= 4, then returns 4. So the output is 4.",
+        "b": "Incorrect. The function does not return 5; it returns 4 when x <= 4.",
+        "c": "Incorrect. The function does not return 6; it returns 4 when x <= 4.",
+        "d": "Incorrect. The function does not return 7; it returns 4 when x <= 4."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. Which of the following statements about function parameters in C is correct?",
+      "answers": {
+        "a": "Function parameters are always passed by reference.",
+        "b": "Function parameters are always passed by value unless pointers are used.",
+        "c": "Function parameters must be global variables.",
+        "d": "Function parameters must be arrays."
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. In C, parameters are passed by value unless pointers are used.",
+        "b": "Correct. In C, parameters are passed by value unless pointers are used to simulate pass by reference.",
+        "c": "Incorrect. Parameters can be local variables.",
+        "d": "Incorrect. Parameters can be of any type, not just arrays."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "5. What will be the output of the following code?<br/>  <img src='./images/question5-posttest.png' alt='code snippet' />",
+      "answers": {
+        "a": "2 3",
+        "b": "3 2",
+        "c": "0 0",
+        "d": "Garbage value"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. The values are swapped using pointers.",
+        "b": "Correct. The swap function exchanges the values of x and y using pointers.",
+        "c": "Incorrect. The function does not set x or y to 0.",
+        "d": "Incorrect. The values are not undefined; they are swapped."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. Which of the following is the best way to avoid code duplication when writing similar functions in C?",
+      "answers": {
+        "a": "Use macros for all code.",
+        "b": "Write separate functions for each case.",
+        "c": "Use function parameters to generalize behavior.",
+        "d": "Copy and paste code blocks."
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. Macros can help but are not always the best or safest way.",
+        "b": "Incorrect. Writing separate functions leads to code duplication.",
+        "c": "Correct. Generalizing functions with parameters avoids duplication and increases reusability.",
+        "d": "Incorrect. Copy-pasting code is not a good practice."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "7. What is the output of the following code?<br/>  <img src='./images/question7-posttest.png' alt='code snippet' />",
+      "answers": {
+        "a": "3",
+        "b": "4",
+        "c": "7",
+        "d": "0"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. The function returns the sum, not just x.",
+        "b": "Incorrect. The function returns the sum, not just y.",
+        "c": "Correct. sum(3, 4) returns 7.",
+        "d": "Incorrect. The function does not return 0."
+      },
+      "difficulty": "advanced"
+    }
+  ]
+}

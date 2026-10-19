@@ -1,0 +1,436 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 100%;
+    text-align: center;
+    color: #464646;
+    background-color: #fff;
+}
+
+/* ---------- Buttons ---------- */
+
+.button, .buttonDisable {
+    position: relative;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 0.2em;
+    outline: none;
+    white-space: nowrap;
+    background-clip: padding-box;
+    border: 1px solid #d4d4d4;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button {
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+    border-color: #3072b3;
+    border-bottom-color: #2a65a0;
+    color: #fff;
+    background-color: #3c8dde;
+    background-image: linear-gradient(#599bdc, #3072b3);
+}
+
+.button:hover {
+    background-image: linear-gradient(#4f93d8, #2a65a0);
+}
+
+.buttonDisable {
+    text-shadow: 1px 1px 0 #fff;
+    color: #999999;
+    background-color: #ececec;
+    background-image: linear-gradient(#f4f4f4, #ececec);
+}
+
+.okButton {
+    display: block;
+    font-size: 14px;
+    width: 80%;
+    min-height: 34px;
+    margin: 20px auto 24px;
+}
+
+/* ---------- Page layout: three panels ---------- */
+
+.mainDivisions {
+    display: flex;
+    gap: 2%;
+    padding: 16px 3%;
+    height: 100vh;
+    min-height: 560px;
+}
+
+.instructionsOutput:not(.hide) + .mainDivisions {
+    height: calc(100vh - 90px);
+}
+
+.inputDivision, .executionDivision, .outputDivision {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.inputDivision {
+    flex: 0 0 22%;
+}
+
+.executionDivision {
+    flex: 0 0 32%;
+}
+
+.outputDivision {
+    flex: 1 1 auto;
+}
+
+.inputDivisionTitle, .outputDivisionTitle, .executionDivisionTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    min-height: 56px;
+    padding: 8px;
+    font-size: 1.3em;
+    color: #2a65a0;
+    text-shadow: 1px 1px 0 #fff;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+}
+
+.initializePic, .executionPic, .outputPic {
+    flex: 0 0 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+}
+
+.initializePic {
+    background-image: url('../images/initIcon.png');
+}
+
+.executionPic {
+    background-image: url('../images/pageIcon.png');
+}
+
+.outputPic {
+    background-image: url('../images/outputIcon.png');
+}
+
+/* Panel bodies scroll inside the panel, so nothing is cut off */
+.inputDivisionBody, .stepExecutionDisplay, .resultDisplay {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+}
+
+.hide {
+    display: none !important;
+}
+
+/* ---------- Initialize panel ---------- */
+
+.instruction {
+    font-size: 1em;
+    margin: 15px 5% 0;
+    text-align: left;
+    color: #464646;
+}
+
+.questionBlock {
+    padding-bottom: 8px;
+}
+
+.questionText, .questionTextRich {
+    text-align: left;
+    margin: 18px 5% 6px;
+}
+
+.radioButtonHolder {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 28px;
+    padding: 2px 0 2px 8%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.radiobutton {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.programInitialization, .computeArea, .programTail {
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 84%;
+    margin: 10px auto 0;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+}
+
+/* One row per term: "+ [box]", the first box has no "+" */
+#inputBoxSection {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    align-items: center;
+    row-gap: 6px;
+    width: 84%;
+    margin: 8px auto 0;
+}
+
+.textArea {
+    grid-column: 2;
+    width: 100%;
+    height: 30px;
+    padding: 0 6px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+}
+
+.textArea:focus {
+    border-color: #3072b3;
+}
+
+.plusSign {
+    grid-column: 1;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* ---------- Step Execution panel ---------- */
+
+.stepExecutionDisplay {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.functionForSquare, .functionForRectangle, .functionForTriangle, .functionForCircle {
+    flex: 1 0 auto;
+    min-height: 120px;
+    padding: 4px 8px 6px;
+}
+
+.functionForSquare, .functionForRectangle, .functionForTriangle {
+    border-bottom: 1px dashed #ccc;
+}
+
+.textColor {
+    color: #727272;
+    opacity: 0.6;
+}
+
+#functionSquare, #functionRectangle, #functionCircle, #functionTriangle {
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* ---------- Code Output panel ---------- */
+
+.resultDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+}
+
+.imageBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2%;
+    width: 100%;
+    height: 100%;
+    max-width: 560px;
+    max-height: 560px;
+}
+
+.imageSquare, .imageRectangle, .imageTriangle, .imageCircle {
+    position: relative;
+    min-height: 120px;
+    border: 1px dashed black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-origin: content-box;
+    background-color: transparent;
+    padding: 10%;
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.imageSquare:hover, .imageRectangle:hover, .imageTriangle:hover, .imageCircle:hover {
+    opacity: 1;
+}
+
+.imageSquare {
+    background-image: url('../images/square.jpg');
+}
+
+.imageRectangle {
+    background-image: url('../images/rectangle.jpg');
+}
+
+.imageTriangle {
+    background-image: url('../images/triangle.jpg');
+}
+
+.imageCircle {
+    background-image: url('../images/circle.jpg');
+}
+
+.disabledImage {
+    pointer-events: none;
+}
+
+.tick {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 36px;
+    height: 36px;
+}
+
+.imageComplex {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    aspect-ratio: 520 / 490;
+    background-image: url('../images/figure.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
+}
+
+/* ---------- Hints shown above the panels at the last stage ---------- */
+
+.v-collapsible-instruction-container {
+    margin: 10px 3% 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.v-collapsible {
+    list-style: disc inside;
+    background-color: #f1f1f1;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.instr-font {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ---------- Small screens: stack the panels ---------- */
+
+@media only screen and (max-width: 899px) {
+    .mainDivisions,
+    .instructionsOutput:not(.hide) + .mainDivisions {
+        flex-direction: column;
+        gap: 16px;
+        height: auto;
+        min-height: 0;
+        padding: 12px 16px;
+    }
+
+    .inputDivision, .executionDivision, .outputDivision {
+        flex: 0 0 auto;
+    }
+
+    /* Shapes and figure come right after the inputs, the generated code last */
+    .inputDivision {
+        order: 1;
+    }
+
+    .outputDivision {
+        order: 2;
+    }
+
+    .executionDivision {
+        order: 3;
+    }
+
+    /* Last stage: show the composite figure above the function-call boxes */
+    .stageCalculate .outputDivision {
+        order: 0;
+    }
+
+    .inputDivisionTitle, .outputDivisionTitle, .executionDivisionTitle {
+        min-height: 48px;
+        font-size: 1.15em;
+    }
+
+    .inputDivisionBody, .stepExecutionDisplay, .resultDisplay {
+        overflow: visible;
+    }
+
+    .instruction {
+        margin-top: 10px;
+    }
+
+    .instruction:last-child {
+        margin-bottom: 12px;
+    }
+
+    .radioButtonHolder {
+        min-height: 40px;
+        font-size: 1.05em;
+    }
+
+    .radiobutton {
+        width: 20px;
+        height: 20px;
+    }
+
+    .okButton {
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    .textArea {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .imageBlock {
+        aspect-ratio: 1 / 1;
+        height: auto;
+    }
+
+    .functionForSquare, .functionForRectangle, .functionForTriangle, .functionForCircle {
+        min-height: 0;
+    }
+
+    .stepExecutionDisplay {
+        font-size: 16px;
+        overflow-x: auto;
+    }
+
+    .v-collapsible-instruction-container {
+        margin: 12px 16px 0;
+    }
+}

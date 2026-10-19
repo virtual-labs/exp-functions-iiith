@@ -1,0 +1,133 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Function prototype is required in every program.",
+      "answers": {
+        "a": "True",
+        "b": "False"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Function prototypes are not required in every program, but they are necessary when functions are defined after their usage or in separate files.",
+        "b": "Correct. Function prototypes are not mandatory in every program, especially if the function is defined before it is used."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. Functions can return more than one value at a time.",
+      "answers": {
+        "a": "True",
+        "b": "False"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Standard C functions can only return a single value. Multiple values can be returned using pointers or structures, but not directly.",
+        "b": "Correct. Functions in C return only one value directly."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. What is the default return value of a function?",
+      "answers": {
+        "a": "int",
+        "b": "Void",
+        "c": "No default return type",
+        "d": "Boolean"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. In C, if no return type is specified, the default is int.",
+        "b": "Incorrect. 'Void' is not the default return type; it must be explicitly specified.",
+        "c": "Incorrect. C does have a default return type, which is int.",
+        "d": "Incorrect. Boolean is not a default return type in C."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. Which of the following is a valid way to declare a function that takes two integers and returns a float?",
+      "answers": {
+        "a": "float add(int, int);",
+        "b": "float add(int a, int b);",
+        "c": "float add(a, b);",
+        "d": "int add(float, float);"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. While valid, option b is more explicit and preferred as it names the parameters.",
+        "b": "Correct. This is a valid and explicit function prototype in C.",
+        "c": "Incorrect. Parameter types must be specified in the prototype.",
+        "d": "Incorrect. This prototype does not match the required return type and parameter types."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "5. What will be the output of the following code?<br/>  <img src='./images/question5-pretest.png' alt='code snippet' />",
+      "answers": {
+        "a": "2",
+        "b": "3",
+        "c": "4",
+        "d": "5"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. The function returns 2 only when x <= 2, but for x=4, it recurses.",
+        "b": "Incorrect. The function increments by 1 for each recursion, but the final value is 4.",
+        "c": "Correct. f(4) calls f(3), which calls f(2)=2, so f(3)=3, f(4)=4.",
+        "d": "Incorrect. The function does not reach 5 for input 4."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. Which of the following statements about recursion in C is correct?",
+      "answers": {
+        "a": "Every recursive function must have a base case.",
+        "b": "Recursive functions cannot call themselves.",
+        "c": "Recursion is not allowed in C.",
+        "d": "Recursive functions must return void."
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. A base case is necessary to prevent infinite recursion.",
+        "b": "Incorrect. Recursive functions must call themselves.",
+        "c": "Incorrect. Recursion is supported in C.",
+        "d": "Incorrect. Recursive functions can return any type."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. Which of the following is the best way to return multiple values from a function in C?",
+      "answers": {
+        "a": "Return an array directly.",
+        "b": "Use global variables only.",
+        "c": "Use pointers or structures as function parameters.",
+        "d": "Return more than one value in the return statement."
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. C does not support returning arrays directly from functions.",
+        "b": "Incorrect. Global variables are not the best practice for returning values.",
+        "c": "Correct. Using pointers or structures allows returning multiple values effectively.",
+        "d": "Incorrect. Only one value can be returned in the return statement."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "8. What is the output of the following code?<br/>  <img src='./images/question8-pretest.png' alt='code snippet' />",
+      "answers": {
+        "a": "5",
+        "b": "10",
+        "c": "0",
+        "d": "Garbage value"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. The value of x is changed by the function foo.",
+        "b": "Correct. The function modifies x through the pointer, so x becomes 10.",
+        "c": "Incorrect. The function does not set x to 0.",
+        "d": "Incorrect. The value is not undefined; it is set to 10."
+      },
+      "difficulty": "advanced"
+    }
+  ]
+}
